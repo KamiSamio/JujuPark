@@ -1,0 +1,21 @@
+<!--Copyright 2024 <Samuel Masse, MASS83060001>-->>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Erreur de validation</title>
+</head>
+
+<body>
+    <h1>Erreur(s) dans le formulaire</h1>
+    <ul>
+        {% for erreur in erreurs %}
+        <li>{{ erreur }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('page2') }}">Retour au formulaire</a>
+</body>
+
+</html>

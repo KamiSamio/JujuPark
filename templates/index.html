@@ -1,0 +1,83 @@
+<!--Copyright 2024 <Samuel Masse, MASS83060001>-->>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JujuPark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <div class="bouton-gauche">
+        <div class="left-buttons">
+            <a href="{{ url_for('page3') }}" class="small-bouton">Payer votre Parcomètres</a>
+        </div>
+        <div class="image-centre">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="image-centre-haut"
+                    style="width: 100px; cursor: pointer;">
+            </a>
+        </div>
+        <div class="recherche-droite">
+            <form action="{{ url_for('recherche') }}" method="get" class="bar-recherche">
+                <input type="text" name="q" placeholder="Recherche..." class="recherche-input">
+            </form>
+
+            <button id="changer-mode" style="background: none; border: none;">
+                <img id="image-mode" src="{{ url_for('static', filename='images/moon.png') }}" alt="Mode sombre"
+                    style="width: 24px; cursor: pointer;" />
+            </button>
+        </div>
+    </div>
+
+    <main class="contenu-page">
+        <h1>Réservez votre parcomètre, maintenant en ligne !</h1>
+
+        <p>
+            Bienvenue sur <strong>JujuParking</strong>, la plateforme moderne qui vous permet de réserver facilement un
+            parcomètre directement en ligne, sans stress et sans déplacement.
+            <br><br>
+            Notre service est simple :
+        </p>
+
+        <ul>
+            <li>Choisissez un parcomètre disponible dans votre quartier</li>
+            <li>Indiquez votre véhicule (modèle + année)</li>
+            <li>Payer sécuritairement grâce à notre système protégé</li>
+            <li>Recevez une confirmation instantanée de réservation</li>
+        </ul>
+
+        <p>
+            Ci-dessous, découvrez nos <strong>parcomètres actuellement en utilisation ou récemment réservés</strong>.
+            Cliquez sur un parcomètre pour consulter :
+        </p>
+
+        <ul>
+            <li>Le numéro du parcomètre pour une identification facile</li>
+            <li>Son emplacement exact</li>
+            <li>Un description de son emplacement</li>
+        </ul>
+        <div class="animaux-liste">
+            {% for animal in animaux %}
+            <a href="/{{ animal.id }}" class="animal-card">
+                <img src="{{ url_for('static', filename='images/comingsoon.png') }}" alt="Photo de {{ animal.nom }}"
+                    class="animal-images">
+                <h3>Parkometre : {{ animal.id }}</h3>
+                <p><strong>Adresse :</strong> {{ animal['adresse'] }}, {{ animal['ville'] }} {{ animal['cp'] }}</p>
+                <p><strong>Description :</strong> {{ animal.description }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Samuel Massé TEL5025 Automne 2025 - JujuParking</p>
+    </footer>
+</body>
+
+</html>

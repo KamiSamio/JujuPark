@@ -1,0 +1,130 @@
+<!--Copyright 2024 <Samuel Masse, MASS83060001>-->>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcomètre #{{ animal['id'] }} - JujuPark</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+  <script src="{{ url_for('static', filename='scriptFormulaire.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+  <div class="bouton-gauche">
+    <div class="left-buttons">
+      <a href="{{ url_for('page3') }}" class="small-bouton">Payer votre Parkometre</a>
+    </div>
+    <div class="image-centre">
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="image-centre-haut"
+          style="width: 100px; cursor: pointer;">
+      </a>
+    </div>
+    <div class="recherche-droite">
+      <form action="{{ url_for('recherche') }}" method="get" class="bar-recherche">
+        <input type="text" name="q" placeholder="Recherche..." class="recherche-input">
+      </form>
+
+      <button id="changer-mode" style="background: none; border: none;">
+        <img id="image-mode" src="{{ url_for('static', filename='images/moon.png') }}" alt="Mode sombre"
+          style="width: 24px; cursor: pointer;" />
+      </button>
+    </div>
+  </div>
+
+  <main class="contenu-page">
+    <section class="animal-detail-section">
+      <div class="animal-detail-carte">
+        <div class="animal-detail-contenu">
+          <h1>Parcomètres {{ animal['id'] }}</h1>
+          <p><strong>Adresse :</strong> {{ animal['adresse'] }}, {{ animal['ville'] }} {{ animal['cp'] }}</p>
+          <p><strong>Courriel :</strong> <a href="mailto:{{ animal['courriel'] }}">{{ animal['courriel'] }}</a></p>
+          <p><strong>Description :</strong> {{ animal['description'] }}</p>
+        </div>
+        <div class="animal-detail-image">
+          <img src="{{ url_for('static', filename='images/comingsoon.png') }}" alt="Photo de {{ animal.nom }}"
+            class="animal-image">
+        </div>
+      </div>
+    </section>
+    <div class="formulaire-centre">
+      <div class="animal-detail-carte">
+        <div class="animal-detail-contenu">
+          <form id="formPaiement">
+
+            <div class="titre-formulaire">
+              <h2>Paiement de votre Parcomètres</h2>
+            </div>
+
+            <div class="info-formualaire">
+
+              <input type="text" id="nom_animal" name="nom" placeholder="Votre nom complet" required>
+
+              <input type="text" id="espece_animal" name="espece" placeholder="Marque de votre voiture" required>
+
+              <input type="text" id="race_animal" name="race" placeholder="Modèle de votre voiture" required>
+
+              <select id="age_animal" name="age" required>
+                <optgroup label="-- Année de votre voiture --"></optgroup>
+              </select>
+
+              <p><strong>Temps de Reservation & Tariff</strong> :</p>
+              <p>Entre 1 heures et 3 heures : 5$</p>
+              <p>Entre 4 heures et 12 heures : 10$</p>
+              <p>Entre 13 heures et 24 heures : 15$</p>
+              <select id="description_animal" name="description" required>
+                <optgroup label="-- Nombre d'heures (1 à 24) --"></optgroup>
+              </select>
+
+              <input type="text" id="carte_credit" name="carte_credit"
+                placeholder="Numéro de carte de crédit (16 chiffres)" required>
+
+              <input type="text" id="cvv" name="cvv" placeholder="Code de sécurité (CVV)" required>
+
+              <select id="expiration_mois" name="expiration_mois" required>
+                <optgroup label="-- Mois d'expiration --"></optgroup>
+              </select>
+
+              <select id="expiration_annee" name="expiration_annee" required>
+                <optgroup label="-- Année d'expiration --"></optgroup>
+              </select>
+
+              <input type="email" id="email" name="courriel" placeholder="Email" required>
+
+              <div class="city-item">
+                <input type="text" name="adresse" id="adresse" placeholder="Adresse" required />
+                <input type="text" name="ville" id="ville" placeholder="Ville" required />
+                <input type="text" id="code_postal" name="cp" placeholder="Code Postal" required />
+                <select name="province" id="province">
+                  <optgroup label="- Choisir une province -"></optgroup>
+                  <option value="Quebec">Québec</option>
+                </select>
+              </div>
+
+              <div class="checkbox">
+                <input type="checkbox" id="checkbox" required>
+                <span>
+                  J'accepte les <a href="{{ url_for('page4') }}" target="_blank">Politiques de confidentialité de
+                    JujuPark</a>
+                </span>
+              </div>
+
+              <button type="submit" id="bouton-envoyer">Payer maintenant</button>
+              <button type="button" id="bouton-reinitialiser"
+                onclick="document.getElementById('formPaiement').reset()">Réinitialiser</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; Samuel Massé TEL5025 Automne 2025 - JujuParking</p>
+  </footer>
+</body>
+</html>

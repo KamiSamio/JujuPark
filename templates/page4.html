@@ -1,0 +1,153 @@
+<!--Copyright 2024 <Samuel Masse, MASS83060001>-->>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termes et Conditions – JujuParking</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+  <div class="bouton-gauche">
+    <div class="left-buttons">
+      <a href="{{ url_for('page3') }}" class="small-bouton">Payer votre Parcomètre</a>
+    </div>
+    <div class="image-centre">
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="image-centre-haut"
+          style="width: 100px; cursor: pointer;">
+      </a>
+    </div>
+    <div class="recherche-droite">
+      <form action="{{ url_for('recherche') }}" method="get" class="bar-recherche">
+        <input type="text" name="q" placeholder="Recherche..." class="recherche-input">
+      </form>
+
+      <button id="changer-mode" style="background: none; border: none;">
+        <img id="image-mode" src="{{ url_for('static', filename='images/moon.png') }}" alt="Mode sombre"
+          style="width: 24px; cursor: pointer;" />
+      </button>
+    </div>
+  </div>
+
+  <main class="contenu-page">
+    <h1>Termes et Conditions – JujuParking</h1>
+    <p><strong>Dernière mise à jour :</strong> 16 Novembre 2025</p>
+
+    <p>Bienvenue sur <strong>JujuParking</strong>. En utilisant notre plateforme pour réserver un
+      parcomètre, vous acceptez les conditions énoncées ci-dessous. Veuillez les lire attentivement avant de poursuivre.
+    </p>
+
+    <h2>1. Objet du service</h2>
+    <p>JujuParking permet la réservation d’un espace de stationnement ou parcomètre pour une durée déterminée. Le
+      service inclut :</p>
+    <ul>
+      <li>La réservation d’un parcomètre ou emplacement,</li>
+      <li>La gestion du paiement en ligne,</li>
+      <li>L’envoi de notifications liées à la réservation.</li>
+    </ul>
+
+    <h2>2. Données collectées</h2>
+    <p>Dans le cadre de la réservation, nous collectons :</p>
+    <ul>
+      <li><strong>Données personnelles :</strong> nom complet, adresse postale, adresse courriel.</li>
+      <li><strong>Informations sur le véhicule :</strong> modèle, marque, année.</li>
+      <li><strong>Informations de paiement :</strong> numéro de carte de crédit, date d’expiration, code CVV.</li>
+      <li><strong>Données de navigation :</strong> pages consultées, date et heure de réservation.</li>
+    </ul>
+
+    <p><em>Les informations bancaires sont transmises de manière chiffrée par un fournisseur de paiement sécurisé et ne
+        sont jamais stockées directement sur nos serveurs.</em></p>
+
+    <h2>3. Utilisation des données</h2>
+    <p>Vos informations sont utilisées uniquement pour :</p>
+    <ul>
+      <li>Traitement de la réservation,</li>
+      <li>Vérification de l’identité du titulaire,</li>
+      <li>Traitement du paiement sécurisé,</li>
+      <li>Gestion des confirmations et rappels de stationnement.</li>
+    </ul>
+
+    <h2>4. Obligations de l’utilisateur</h2>
+    <p>En utilisant notre site, vous vous engagez à :</p>
+    <ul>
+      <li>Fournir des informations exactes et à jour,</li>
+      <li>Utiliser un véhicule conforme aux informations déclarées,</li>
+      <li>Respecter les lois et règlements de stationnement applicables,</li>
+      <li>Ne pas tenter de contourner les limitations techniques du site.</li>
+    </ul>
+
+    <h2>5. Paiements et remboursements</h2>
+    <ul>
+      <li>Le paiement doit être effectué au moment de la réservation.</li>
+      <li>Aucun numéro de carte n’est conservé sur la plateforme.</li>
+      <li>Les réservations ne sont <strong>pas remboursables</strong> sauf en cas d’erreur technique imputable à
+        JujuParking.</li>
+    </ul>
+
+    <h2>6. Limitation de responsabilité</h2>
+    <p>JujuParking n’est pas responsable de :</p>
+    <ul>
+      <li>Vols, bris ou dommages causés au véhicule dans la zone réservée,</li>
+      <li>Amendes ou infractions liées au stationnement,</li>
+      <li>Interruption du service due à des problèmes externes (internet, panne électrique, etc.).</li>
+    </ul>
+
+    <h2>7. Sécurité</h2>
+    <p>Nous mettons en place des mesures techniques strictes pour protéger vos données contre :</p>
+    <ul>
+      <li>L’accès non autorisé,</li>
+      <li>La perte,</li>
+      <li>Le traitement illégal.</li>
+    </ul>
+
+    <h2>8. Partage des données</h2>
+    <p>Vos données ne sont jamais rendues publiques. Elles peuvent être partagées uniquement avec :</p>
+    <ul>
+      <li>Notre fournisseur de paiement sécurisé,</li>
+      <li>Notre équipe technique,</li>
+      <li>Les autorités en cas d’obligation légale.</li>
+    </ul>
+
+    <h2>9. Durée de conservation</h2>
+    <p>Les données de réservation sont conservées :</p>
+    <ul>
+      <li>Pour une durée maximale de 12 mois pour les informations non bancaires,</li>
+      <li>Les informations bancaires ne sont jamais conservées.</li>
+    </ul>
+
+    <h2>10. Vos droits</h2>
+    <p>Vous pouvez à tout moment :</p>
+    <ul>
+      <li>Consulter les données vous concernant,</li>
+      <li>Demander leur rectification,</li>
+      <li>Demander leur suppression,</li>
+      <li>Retirer votre consentement.</li>
+    </ul>
+    <p>Contact : <a href="mailto:support@jujuparking.example">support@jujuparking.example</a></p>
+
+    <h2>11. Suspension ou refus de service</h2>
+    <p>JujuParking se réserve le droit de suspendre ou refuser l’accès au service en cas de :</p>
+    <ul>
+      <li>Informations frauduleuses,</li>
+      <li>Utilisation abusive du service,</li>
+      <li>Violation des présentes conditions.</li>
+    </ul>
+
+    <h2>12. Consentement</h2>
+    <p>En effectuant une réservation sur JujuParking, vous reconnaissez avoir lu et accepté l’intégralité de nos Termes
+      et Conditions.</p>
+  </main>
+
+  <footer>
+    <p>&copy; Samuel Massé TEL5025 Automne 2025 - JujuParking</p>
+  </footer>
+
+</body>
+
+</html>
